@@ -71,6 +71,7 @@ export async function POST(request) {
   $('[data-testid="tag-carousel"]')
     .find(" a")
     .each(function () {
+      if (details.tagList.includes($(this).text().trim())) return;
       details.tagList.push($(this).text().trim());
     });
 

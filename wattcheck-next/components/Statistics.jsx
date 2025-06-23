@@ -10,11 +10,10 @@ import ChapterBar from "@/components/chapter/ChapterBar";
 import ChapterStatistics from "@/components/chapter/ChapterStatistics";
 import { useTranslation } from "react-i18next";
 
-
 function Statistics() {
   const fanfic = useContext(FanficContext);
   if (!fanfic) return null;
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const [allStatistics, setAllStatistic] = useState([]);
 
@@ -51,10 +50,11 @@ function Statistics() {
             />
           ))}
         </div>
-        {allStatistics.length === fanfic.chapters.length ? 
-        (<ChapterStatistics chapters={allStatistics} />) :
-        (<p className="text-white font-bold">{t('charts_loading')}</p>)
-        }
+        {allStatistics.length === fanfic.chapters.length ? (
+          <ChapterStatistics chapters={allStatistics} />
+        ) : (
+          <p className="text-white font-bold">{t("charts_loading")}</p>
+        )}
       </div>
     </div>
   );
