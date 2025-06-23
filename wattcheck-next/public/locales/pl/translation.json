@@ -1,0 +1,23 @@
+{
+  "app_title": "Sprawdź statystyki",
+  "paste_here": "Wklej link (http://wattpad.com/story/...)",
+  "load": "Załaduj!",
+  "clear": "Wyczyść",
+  "stats": "Statystyki",
+  "summary": "Streszczenie",
+  "views": "wyświetlenia",
+  "votes": "głosy",
+  "comments": "komentarze",
+  "parts": "części",
+  "published": "opublikowano",
+  "followers": "obserwujących",
+  "title": "Sprawdź statystyki na Wattpadzie dzięki Barwinkowi",
+  "description": "Aplikacja używająca web scrappingu do pobierania wattpadowych statystyk!",
+  "app_name": "Barwinek",
+  "app_desc": "użyj Barwinka, by sprawdzić statystyki",
+  "error.empty_url": "Niepoprawny link!",
+  "error.invalid_url": "Niepoprawny link, sprawdź go i spróbuj ponownie",
+  "error.unknown": "Nieznany błąd",
+  "charts_loading": "Ładowanie wykresów.."
+
+}

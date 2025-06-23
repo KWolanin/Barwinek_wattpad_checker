@@ -1,0 +1,23 @@
+{
+  "app_title": "Check story stats",
+  "paste_here": "Paste link (https://wattpad.com/story/...)",
+  "load": "Load!",
+  "clear": "Clear",
+  "stats": "Statistics",
+  "summary": "Summary",
+  "views": "views",
+  "votes": "votes",
+  "comments": "comments",
+  "parts": "parts",
+  "published": "published",
+  "followers": "followers",
+  "title": "Check your Wattpad Statistics via Barwinek",
+  "description": "Web scrapping app to checking Wattpad story statistics!",
+  "app_name": "Barwinek",
+  "app_desc": "use Barwinek to check stats",
+  "error.empty_url": "Input link!",
+  "error.invalid_url": "Unvalid link, check it and try again later",
+  "error.unknown": "Unknown error",
+  "charts_loading": "Loading charts..."
+}
+
