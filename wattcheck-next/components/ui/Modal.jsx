@@ -1,8 +1,8 @@
 "use client";
 import "@/i18n";
 import { useTranslation } from "react-i18next";
-import { KoFiButton } from "react-kofi";
-import "react-kofi/dist/styles.css";
+// import { KoFiButton } from "react-kofi";
+// import "react-kofi/dist/styles.css";
 
 function Modal({ onClick }) {
   const { t } = useTranslation();
@@ -68,14 +68,14 @@ function Modal({ onClick }) {
                     {t("about_desc")}
                   </p>
                 </div>
-                <section className="mt-4 flex justify-center">
+            {/*     <section className="mt-4 flex justify-center">
                   <KoFiButton
                     color="#d65cb3"
                     id="kaishouri"
                     label="Support me on Ko-Fi"
                     radius="12px"
                   />
-                </section>
+                </section> */}
               </div>
             </div>
           </div>
