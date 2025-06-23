@@ -7,6 +7,13 @@ import { useTranslation } from "react-i18next";
 import logo from "@/public/favicon.png";
 import Image from "next/image";
 
+import { Pattaya } from "next/font/google";
+
+const pattaya = Pattaya({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const values_pl = [
   "Wczytywanie fika...",
   "To może zająć chwilę...",
@@ -92,10 +99,12 @@ export default function Selector({ onSetFic }) {
               className="object-contain"
             />
           </div>
-          <p className="text-own-salmon font-bold text-3xl p-4">
+          <p
+            className={`text-own-salmon font-bold text-4xl p-2 ${pattaya.className}`}
+          >
             {t("app_name")}
           </p>
-          <p className="text-own-violet font-bold text-l p-4">
+          <p className="text-own-violet font-bold text-l p-2 font-mono">
             {t("app_desc")}
           </p>
         </div>
@@ -110,7 +119,7 @@ export default function Selector({ onSetFic }) {
           <button
             className="bg-own-orange
              text-white shadow-md px-4 py-2 rounded
-              hover:bg-own-salmon transition whitespace-nowrap flex items-center justify-center font-bold"
+              hover:bg-own-salmon transition whitespace-nowrap flex items-center justify-center font-bold font-mono"
             disabled={isLoading}
             type="submit"
           >
@@ -141,9 +150,9 @@ export default function Selector({ onSetFic }) {
         </form>
 
         <div className="block text-center mt-4">
-          {error && <span className="text-red-400 font-bold">{error}</span>}
+          {error && <span className="text-red-400 font-bold font-mono">{error}</span>}
           {loadingMsg && (
-            <span className="text-green-400 font-bold">{loadingMsg}</span>
+            <span className="text-green-400 font-bold font-mono">{loadingMsg}</span>
           )}
         </div>
       </div>

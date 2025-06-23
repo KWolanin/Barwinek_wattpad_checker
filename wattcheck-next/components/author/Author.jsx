@@ -52,10 +52,10 @@ function Author() {
       )}
       {!user && (
         <div className="animate-pulse flex flex-col items-center space-y-3">
-          <div className="h-5 w-1/2 bg-yellow-200 rounded"></div>
-          <div className="w-[80px] h-[80px] bg-yellow-200 rounded"></div>
-          <div className="h-4 w-3/4 bg-yellow-200 rounded"></div>
-          <div className="h-4 w-2/3 bg-yellow-200 rounded"></div>
+          <div className="h-5 w-1/2 bg-gray-50 rounded"></div>
+          <div className="w-[80px] h-[80px] bg-gray-50 rounded"></div>
+          <div className="h-4 w-3/4 bg-gray-50 rounded"></div>
+          <div className="h-4 w-2/3 bg-gray-50 rounded"></div>
         </div>
       )}
     </div>

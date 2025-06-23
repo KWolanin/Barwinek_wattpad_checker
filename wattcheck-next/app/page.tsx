@@ -6,6 +6,7 @@ import Statistics from "@/components/Statistics";
 import ClearBtn from "@/components/ui/ClearBtn";
 import LanguageSelector from "@/components/ui/LanguageSelector";
 import { FanficContext } from "@/context/fanfic-context";
+import About from "@/components/ui/About";
 
 export default function Home() {
   const [fic, setFic] = useState(null);
@@ -24,11 +25,12 @@ export default function Home() {
       </section>
     );
   }
-
+  
   return (
     <FanficContext.Provider value={fic}>
       <main className="bg-gradient-to-bl from-[#fff6e4]  to-[#deccfb]">
         <LanguageSelector />
+      <About />
         {content}
       </main>
     </FanficContext.Provider>

@@ -18,6 +18,14 @@
   "error.empty_url": "Niepoprawny link!",
   "error.invalid_url": "Niepoprawny link, sprawdź go i spróbuj ponownie",
   "error.unknown": "Nieznany błąd",
-  "charts_loading": "Ładowanie wykresów..."
-
+  "charts_loading": "Ładowanie wykresów...",
+  "how_it_works": "Jak to działa?",
+  "how_it_works_desc_1": "Ta strona używa techniki ",
+  "how_it_works_desc_2": " do pobierania statystyk z Wattpada. Wklej link do historii, a Barwinek wyświetli wszystkie dostępne statystyki. ",
+  "how_it_works_desc_3": "Wszystkie pobierane dane są publicznie dostępne na Wattpadzie, na stronie historii i poszczególnych rozdziałów. ",
+  "how_it_works_desc_4": "Barwinek nie przechowuje żadnych danych, a wszystkie statystyki są pobierane bezpośrednio z Wattpada. ",
+  "how_it_works_desc_5": "Aplikacja jest w pełni open-source, więc możesz sprawdzić kod źródłowy na ",
+  "how_it_works_desc_6": " GitHubie.",
+  "about": "O mnie",
+  "about_desc": "Jeśli podoba Ci się ta aplikacja, możesz mnie wesprzeć, kupując mi kawę. Pomoże mi to w utrzymaniu i ulepszaniu aplikacji ;3"
 }

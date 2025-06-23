@@ -4,6 +4,7 @@ import "./globals.css";
 import TitleUpdater from "@/components/ui/TitleUpdater";
 
 
+
 export const metadata: Metadata = {
   title: "Check your Wattpad Statistics via Barwinek",
   description: "Web scrapping app to checking Wattpad story statistics!",

@@ -18,6 +18,15 @@
   "error.empty_url": "Input link!",
   "error.invalid_url": "Invalid link, check it and try again later",
   "error.unknown": "Unknown error",
-  "charts_loading": "Loading charts..."
+  "charts_loading": "Loading charts...",
+  "how_it_works": "How it works?",
+  "how_it_works_desc_1": "This page uses ",
+  "how_it_works_desc_2": " technique to retrieve statistics from Wattpad. Paste the link to the story, and Barwinek will display all available statistics. ",
+  "how_it_works_desc_3": "All data is publicly available on Wattpad, on the story and chapter pages. ",
+  "how_it_works_desc_4": "Barwinek does not store any data, and all statistics are retrieved directly from Wattpad. ",
+  "how_it_works_desc_5": "The app is fully open-source, so you can check the source code on ",
+  "how_it_works_desc_6": " GitHub.",
+  "about": "About me",
+  "about_desc": "If you like this app, you can support me by buying me a coffee. It will help me maintain and improve the app ;3"
 }
 
