@@ -1,4 +1,4 @@
-# Next.js web srapper that allows to check statistics for any Wattpad story in a convenient way. 
+# Next.js web scrapper that allows to check statistics for any Wattpad story in a convenient way. 
 React, Next.js & Tailwind practice. 
 
 ## npm install, npm run dev
