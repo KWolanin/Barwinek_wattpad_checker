@@ -1,4 +1,6 @@
-import { FanficContext } from "@/app/page";
+'use client'
+import "@/i18n";
+import { FanficContext } from "@/context/fanfic-context";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 

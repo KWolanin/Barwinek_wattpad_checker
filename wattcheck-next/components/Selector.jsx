@@ -1,4 +1,5 @@
 "use client";
+import "@/i18n";
 
 import { useEffect, useState, useRef } from "react";
 import { getFic } from "@/src/getFic";
@@ -82,7 +83,11 @@ export default function Selector({ onSetFic }) {
       <div className="w-full max-w-xl">
         <div className="p-4 w-full flex flex-col items-center justify-center">
           <div className="relative w-48 h-24">
-            <Image src={logo} alt="A flower" fill className="object-contain" />
+            <Image src={logo}
+             alt="A flower" 
+             priority
+             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+             fill className="object-contain" />
           </div>
           <p className="text-white font-bold text-3xl p-4">{t("app_name")}</p>
           <p className="text-white font-bold text-xl p-4">{t("app_desc")}</p>

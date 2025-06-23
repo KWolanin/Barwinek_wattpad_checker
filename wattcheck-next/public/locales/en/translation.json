@@ -16,7 +16,7 @@
   "app_name": "Barwinek",
   "app_desc": "use Barwinek to check stats",
   "error.empty_url": "Input link!",
-  "error.invalid_url": "Unvalid link, check it and try again later",
+  "error.invalid_url": "Invalid link, check it and try again later",
   "error.unknown": "Unknown error",
   "charts_loading": "Loading charts..."
 }

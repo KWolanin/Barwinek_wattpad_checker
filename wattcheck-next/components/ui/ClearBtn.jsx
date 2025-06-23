@@ -1,3 +1,5 @@
+'use client'
+import "@/i18n";
 import { useTranslation } from "react-i18next";
 
 function ClearBtn({ onClear }) {

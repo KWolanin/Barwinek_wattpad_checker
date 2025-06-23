@@ -1,3 +1,5 @@
+'use client'
+import "@/i18n";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,

@@ -1,9 +1,8 @@
 'use client'
-
+import "@/i18n";
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState, useContext } from "react";
-import { getUser } from "@/src/getUser";
-import { FanficContext } from "@/app/page";
+import { FanficContext } from "@/context/fanfic-context";
 
 function Author() {
   const [user, setUser] = useState();
@@ -14,13 +13,21 @@ function Author() {
   if (!fanfic) return null;
   const username = fanfic.author;
 
-  useEffect(() => {
+    useEffect(() => {
     async function getUserInfo() {
-      const result = await getUser(username);
-      setUser(result);
+      const res = await fetch("/api/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username }),
+      });
+      if (res.ok) {
+        const result = await res.json();
+        setUser(result);
+      }
     }
     getUserInfo();
-  }, []);
+  }, [username]);
+
 
   return (
     <div className="bg-amber-200 border border-amber-800 rounded shadow p-4 col-span-1 items-center">

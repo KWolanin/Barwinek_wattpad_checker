@@ -1,9 +1,10 @@
 "use client";
+import "@/i18n";
 import Author from "@/components/author/Author";
 import Story from "@/components/story/Story";
 import Description from "@/components/story/Description";
 import { useContext, useState } from "react";
-import { FanficContext } from "@/app/page";
+import { FanficContext } from "@/context/fanfic-context";
 import Tag from "@/components/ui/Tag";
 import ChapterBar from "@/components/chapter/ChapterBar";
 import ChapterStatistics from "@/components/chapter/ChapterStatistics";

@@ -1,5 +1,6 @@
+'use client'
+import "@/i18n";
 import { useEffect, useState } from "react";
-import { getChapterStats } from "@/src/getChapter";
 import { useTranslation } from "react-i18next";
 import formatDate from "@/src/date"
 
@@ -14,22 +15,26 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
   const { i18n } = useTranslation()
 
 
-  useEffect(() => {
-    async function getStats() {
-      const result = await getChapterStats(chapter.link);
-      setStats(result);
-      const singleStats = {
-        stats: result,
-        title: chapter.title,
-        chapterNo: index + 1,
-      };
-      onChapterLoaded(singleStats);
-      setLoading(false);
-    }
-    setLoading(true);
-    getStats();
-  }, []);
-
+useEffect(() => {
+  async function getStats() {
+    const res = await fetch("/api/chapterStats", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: chapter.link }),
+    });
+    const result = await res.json();
+    setStats(result);
+    const singleStats = {
+      stats: result,
+      title: chapter.title,
+      chapterNo: index + 1,
+    };
+    onChapterLoaded(singleStats);
+    setLoading(false);
+  }
+  setLoading(true);
+  getStats();
+}, []);
 
   return (
     <a
@@ -88,7 +93,7 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              strokeeidth="2"
+              strokeWidth="2"
             >
               <path
                 strokeLinecap="round"
