@@ -17,7 +17,7 @@ export default function Home() {
   } else {
     content = (
       <section>
-        <div className="w-full">
+        <div className="w-full md:w-3/4 mx-auto">
           <ClearBtn onClear={setFic} />
           <Statistics />
         </div>
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <FanficContext.Provider value={fic}>
-      <main className="bg-purple-950">
+      <main className="bg-gradient-to-bl from-[#fff6e4]  to-[#deccfb]">
         <LanguageSelector />
         {content}
       </main>

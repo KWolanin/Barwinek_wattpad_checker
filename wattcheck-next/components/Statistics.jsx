@@ -35,10 +35,12 @@ function Statistics() {
         <Description />
       </div>
 
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-6 flex flex-wrap gap-2 justify-center">
+        <div className="mt-6 flex flex-wrap gap-2 w-1/2 justify-center">
         {fanfic.tagList.map((tag, index) => (
           <Tag key={`${tag}-${index}`} name={tag} />
         ))}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-6 mb-2  w-full">
           {fanfic.chapters.map((chapter, index) => (

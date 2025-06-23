@@ -8,10 +8,12 @@ function ClearBtn({ onClear }) {
   return (
     <div className="p-4">
       <button
-        className="bg-stone-500 text-white shadow-md px-4 py-2 rounded hover:bg-yellow-500 transition whitespace-nowrap flex items-center justify-center font-bold"
+        className="fixed top-4 left-4 z-50 px-2 py-1 rounded text-sm font-semibold border transition-colors duration-200
+         bg-white text-amber-700 hover:bg-own-salmon
+         "
         onClick={() => onClear(null)}
       >
-        {t("clear")}
+        {t("clear").toUpperCase()}
       </button>
     </div>
   );

@@ -1,9 +1,8 @@
-'use client'
+"use client";
 import "@/i18n";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import formatDate from "@/src/date"
-
+import formatDate from "@/src/date";
 
 function ChapterBar({ chapter, onChapterLoaded, index }) {
   const [isLoading, setLoading] = useState(false);
@@ -12,38 +11,44 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
     stars: 0,
     comments: 0,
   });
-  const { i18n } = useTranslation()
+  const { i18n } = useTranslation();
 
-
-useEffect(() => {
-  async function getStats() {
-    const res = await fetch("/api/chapterStats", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url: chapter.link }),
-    });
-    const result = await res.json();
-    setStats(result);
-    const singleStats = {
-      stats: result,
-      title: chapter.title,
-      chapterNo: index + 1,
-    };
-    onChapterLoaded(singleStats);
-    setLoading(false);
-  }
-  setLoading(true);
-  getStats();
-}, []);
+  useEffect(() => {
+    async function getStats() {
+      const res = await fetch("/api/chapterStats", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: chapter.link }),
+      });
+      const result = await res.json();
+      setStats(result);
+      const singleStats = {
+        stats: result,
+        title: chapter.title,
+        chapterNo: index + 1,
+      };
+      onChapterLoaded(singleStats);
+      setLoading(false);
+    }
+    setLoading(true);
+    getStats();
+  }, []);
 
   return (
     <a
       href={chapter.link}
       target="_blank"
-      className="flex justify-between items-center px-4 py-2 border border-amber-800 rounded-md shadow-sm hover:bg-amber-500 transition-colors text-gray-800 bg-amber-200"
+      className="flex justify-between items-center px-4 py-2 bg-gray-100 border border-own-orange rounded-2xl shadow hover:bg-own-salmon transition-colors text-gray-800 "
     >
-      <div className="flex items-center space-x-2 max-w-[70%] overflow-hidden">
-        <span className="font-semibold truncate">{chapter.title}</span>
+      <div className="flex items-center space-x-2 max-w-[70%] overflow-hidden relative">
+        <span className="text-xs text-gray-500 font-semibold whitespace-nowrap">
+          {chapter.no}
+        </span>
+
+
+        <span className="font-semibold truncate text-amber-800">
+          {chapter.title}
+        </span>
         <span className="flex space-x-2 text-xs text-white">
           <span className="flex items-center bg-emerald-500 rounded px-2 py-0.5 space-x-1">
             <svg
@@ -71,7 +76,7 @@ useEffect(() => {
             )}
           </span>
 
-          <span className="flex items-center bg-purple-500 rounded px-2 py-0.5 space-x-1">
+          <span className="flex items-center bg-own-violet rounded px-2 py-0.5 space-x-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

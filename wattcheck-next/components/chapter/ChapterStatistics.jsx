@@ -52,7 +52,7 @@ function ChapterStatistics({ chapters }) {
         datasets: [
           {
             label: capitalize(t('votes')),
-            backgroundColor: "oklch(62.7% 0.265 303.9)",
+            backgroundColor: "oklch(56% 0.15 298.77)",
             data: sortedChapters.map((ch) => ch.stats.stars),
           },
         ],
@@ -105,10 +105,10 @@ function ChapterStatistics({ chapters }) {
     <div className="space-y-10 p-4 w-full">
       {chartDataList.map((chart) => (
         <div
-          className="bg-amber-200 p-4 rounded border border-amber-800 shadow"
+          className=" p-4 bg-gray-100 border border-own-orange rounded-2xl shadow"
           key={chart.title}
         >
-          <h2 className="text-lg font-semibold mb-2">{chart.title}</h2>
+          <h2 className="text-lg text-amber-700 font-semibold mb-2">{chart.title}</h2>
           <div className="h-64">
             <Bar data={chart.chartData} options={chartOptions} />
           </div>

@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --color-own-violet: #835dc2;
+  /* --color-own-orange: #fd9570; */
+  --color-own-orange: rgba(253, 149, 112, 0.68);
+  /* --color-own-salmon: #fe6e91; */
+  --color-own-salmon: rgba(254, 110, 145, 0.68);
+  --color-own-pink: #d65cb3;
+  --color-own-test: rgba(253, 149, 112, 0.68);
+}

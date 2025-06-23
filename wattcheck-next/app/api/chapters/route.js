@@ -27,7 +27,7 @@ export async function POST(request) {
 
     const date = $(el).find("a > div").last().text().trim();
 
-    chapterList.push({ title, link, date });
+    chapterList.push({ no: i + 1, title, link, date });
   });
 
   const uniqueChapters = Array.from(

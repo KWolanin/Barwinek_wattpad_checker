@@ -11,20 +11,20 @@ function Story() {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-amber-200 border border-amber-800 rounded shadow p-4 col-span-1">
+    <div className="bg-gray-100 border border-own-orange rounded-2xl shadow p-4 col-span-1 text-amber-800 font-bold">
       <h3 className="text-xl font-bold mb-2">{t("stats")}</h3>
       <a href={fanfic.url} target="_blank" className="hover:underline">
         {fanfic.title}
       </a>
-      <p>
+      <p className="mt-2 font-semibold">
         {fanfic.stats.views}
         &ensp;{t("views")}
       </p>
-      <p>
+      <p className="mt-2 font-semibold">
         {fanfic.stats.votes}
         &ensp;{t("votes")}
       </p>
-      <p>
+      <p className="mt-2 font-semibold">
         {fanfic.stats.parts}
         &ensp;{t("parts")}
       </p>

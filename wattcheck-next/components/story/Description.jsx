@@ -13,11 +13,11 @@ function Description() {
 
 
   return (
-    <div className="bg-amber-200 border border-amber-800 rounded shadow p-4 col-span-2">
+    <div className="bg-gray-100 border border-own-orange rounded-2xl shadow p-4 col-span-2 text-amber-800 font-bold">
       <h3 className="text-xl font-bold mb-2">
         {t('summary')}
       </h3>
-      <p className="text-left">{description}</p>
+      <p className=" font-semibold text-center">{description}</p>
     </div>
   );
 }

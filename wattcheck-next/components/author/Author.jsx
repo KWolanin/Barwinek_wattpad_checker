@@ -30,12 +30,12 @@ function Author() {
 
 
   return (
-    <div className="bg-amber-200 border border-amber-800 rounded shadow p-4 col-span-1 items-center">
+    <div className=" bg-gray-100 border border-own-orange rounded-2xl shadow p-4 col-span-1 items-center">
       {user && (
         <div>
           <a
             href={`https://www.wattpad.com/user/${username}`}
-            className="text-amber-600 hover:underline"
+            className="text-amber-800 font-bold"
           >
             {user.username}
           </a>
@@ -46,8 +46,8 @@ function Author() {
             height="80"
             alt="user avatar"
           />
-          <p className="mt-2">{t('published')} {user.publishedStories}</p>
-          <p>{t('followers')} {user.followers}</p>
+          <p className="mt-2 text-amber-800 font-semibold">{t('published')}: {user.publishedStories}</p>
+          <p className="mt-2 text-amber-800 font-semibold">{t('followers')}: {user.followers}</p>
         </div>
       )}
       {!user && (

@@ -79,29 +79,38 @@ export default function Selector({ onSetFic }) {
   if (!mounted) return null;
 
   return (
-    <main className="h-screen flex items-center justify-center">
-      <div className="w-full max-w-xl">
+    <main className="h-screen flex items-center justify-center ">
+      <div className="w-full max-w-xl bg-gray-100 p-4 rounded-2xl border border-own-orange shadow-lg">
         <div className="p-4 w-full flex flex-col items-center justify-center">
-          <div className="relative w-48 h-24">
-            <Image src={logo}
-             alt="A flower" 
-             priority
-             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-             fill className="object-contain" />
+          <div className="relative w-48 h-24 ">
+            <Image
+              src={logo}
+              alt="A flower"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              fill
+              className="object-contain"
+            />
           </div>
-          <p className="text-white font-bold text-3xl p-4">{t("app_name")}</p>
-          <p className="text-white font-bold text-xl p-4">{t("app_desc")}</p>
+          <p className="text-own-salmon font-bold text-3xl p-4">
+            {t("app_name")}
+          </p>
+          <p className="text-own-violet font-bold text-l p-4">
+            {t("app_desc")}
+          </p>
         </div>
 
         <form className="flex space-x-4" onSubmit={getFicViaUrl}>
           <input
-            className="flex-1 px-4 py-2 border border-gray-300 text-gray-200 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="flex-1 px-4 py-2 border border-gray-300 text-gray-500 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
             type="text"
             placeholder={t("paste_here")}
             name="url"
           />
           <button
-            className="bg-amber-500 text-white shadow-md px-4 py-2 rounded hover:bg-yellow-500 transition whitespace-nowrap flex items-center justify-center font-bold"
+            className="bg-own-orange
+             text-white shadow-md px-4 py-2 rounded
+              hover:bg-own-salmon transition whitespace-nowrap flex items-center justify-center font-bold"
             disabled={isLoading}
             type="submit"
           >
