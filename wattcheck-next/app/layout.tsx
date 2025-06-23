@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "@/i18n";
+// import "@/i18n";
 import TitleUpdater from "@/components/ui/TitleUpdater";
 
 

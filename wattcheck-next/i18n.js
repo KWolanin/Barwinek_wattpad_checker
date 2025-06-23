@@ -2,11 +2,12 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import HttpBackend from 'i18next-http-backend'
+
+import translationPL from '@/public/locales/pl/translation.json'
+import translationEN from '@/public/locales/en/translation.json'
 
 if (!i18n.isInitialized) {
   i18n
-    .use(HttpBackend)
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
@@ -17,8 +18,9 @@ if (!i18n.isInitialized) {
         order: ['localStorage', 'navigator'],
         caches: ['localStorage']
       },
-      backend: {
-        loadPath: '/locales/{{lng}}/{{ns}}.json'
+      resources: {
+        pl: { translation: translationPL },
+        en: { translation: translationEN }
       }
     })
 }
