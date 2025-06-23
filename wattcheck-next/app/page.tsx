@@ -4,9 +4,7 @@ import Selector from "@/components/Selector";
 import Statistics from "@/components/Statistics";
 import ClearBtn from "@/components/ui/ClearBtn";
 import LanguageSelector from "@/components/ui/LanguageSelector";
-import { createContext } from "react";
-
-export const FanficContext = createContext(null);
+import {FanficContext} from "@/FanficContext"
 
 export default function Home() {
   const [fic, setFic] = useState(null);
