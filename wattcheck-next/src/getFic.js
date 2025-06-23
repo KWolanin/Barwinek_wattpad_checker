@@ -1,3 +1,5 @@
+'use client'
+
 export async function getFic(url) {
   if (!url) {
     throw new Error("error.empty_url");

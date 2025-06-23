@@ -1,3 +1,4 @@
+'use client'
 export default function formatDate(date, locale) {
   return new Intl.DateTimeFormat(locale, {
     year: 'numeric',

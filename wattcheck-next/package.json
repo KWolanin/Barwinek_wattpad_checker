@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@swc/helpers": "^0.5.17",
     "chart.js": "^4.5.0",
     "cheerio": "^1.1.0",
     "i18next": "^25.2.1",
