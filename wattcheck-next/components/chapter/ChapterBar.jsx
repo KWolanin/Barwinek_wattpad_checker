@@ -1,6 +1,6 @@
 "use client";
 import "@/i18n";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import formatDate from "@/src/date";
 
@@ -12,6 +12,24 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
     comments: 0,
   });
   const { i18n } = useTranslation();
+
+  const dateFormatted = useMemo(() => {
+      console.log('dateFormatted function')
+    let date = new Date(chapter.date);
+
+    let relative = false;
+    if (isNaN(date.getTime())) {
+      date = chapter.date;
+      relative = true;
+    }
+
+    try {
+      return formatDate(date, i18n.language, relative);
+    } catch (err) {
+      console.log("Data format error:", err);
+      return chapter.date;
+    }
+  }, [i18n.language]);
 
   useEffect(() => {
     async function getStats() {
@@ -44,7 +62,6 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
         <span className="text-xs text-gray-500 font-semibold whitespace-nowrap">
           {chapter.no}
         </span>
-
 
         <span className="font-semibold truncate text-amber-800">
           {chapter.title}
@@ -115,7 +132,7 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
       </div>
 
       <span className="text-sm text-gray-500 whitespace-nowrap">
-        {formatDate(new Date(chapter.date), i18n.language)}
+        {dateFormatted}
       </span>
     </a>
   );

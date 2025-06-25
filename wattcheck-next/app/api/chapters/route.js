@@ -26,7 +26,6 @@ export async function POST(request) {
       .trim();
 
     const date = $(el).find("a > div").last().text().trim();
-
     chapterList.push({ no: i + 1, title, link, date });
   });
 
