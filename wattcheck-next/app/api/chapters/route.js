@@ -15,7 +15,7 @@ export async function POST(request) {
   const chapterList = [];
 
   chapters.each((i, el) => {
-    const link = $(el).find("a").attr("href") || '';
+    const link = $(el).find("a").attr("href") || "";
 
     const title = $(el)
       .find("a > div")
@@ -30,8 +30,11 @@ export async function POST(request) {
   });
 
   const uniqueChapters = Array.from(
-    new Map(chapterList.map(ch => [ch.link, ch])).values()
-  );
+    new Map(chapterList.map((ch) => [ch.link, ch])).values()
+  ).map((ch, i) => ({
+    ...ch,
+    no: i + 1,
+  }));
 
   return Response.json(uniqueChapters);
 }
