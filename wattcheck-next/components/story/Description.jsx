@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 
 function Description() {
-  const fanfic = useContext(FanficContext);
+  const {fanfic} = useContext(FanficContext);
   if (!fanfic) return null;
   const description = fanfic.description;
     const { t } = useTranslation();

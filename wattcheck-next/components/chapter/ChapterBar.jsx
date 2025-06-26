@@ -1,8 +1,9 @@
 "use client";
 import "@/i18n";
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import formatDate from "@/src/date";
+import { FanficContext } from "@/context/fanfic-context";
 
 function ChapterBar({ chapter, onChapterLoaded, index }) {
   const [isLoading, setLoading] = useState(false);
@@ -12,9 +13,9 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
     comments: 0,
   });
   const { i18n } = useTranslation();
+  const { getSignal } = useContext(FanficContext);
 
   const dateFormatted = useMemo(() => {
-      console.log('dateFormatted function')
     let date = new Date(chapter.date);
 
     let relative = false;
@@ -26,28 +27,45 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
     try {
       return formatDate(date, i18n.language, relative);
     } catch (err) {
-      console.log("Data format error:", err);
       return chapter.date;
     }
   }, [i18n.language]);
 
   useEffect(() => {
     async function getStats() {
-      const res = await fetch("/api/chapterStats", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: chapter.link }),
-      });
-      const result = await res.json();
-      setStats(result);
-      const singleStats = {
-        stats: result,
-        title: chapter.title,
-        chapterNo: index + 1,
-      };
-      onChapterLoaded(singleStats);
-      setLoading(false);
+      try {
+        const res = await fetch("/api/chapterStats", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: chapter.link }),
+          signal: getSignal(),
+        });
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        const result = await res.json();
+        setStats(result);
+
+        const singleStats = {
+          stats: result,
+          title: chapter.title,
+          chapterNo: index + 1,
+        };
+
+        onChapterLoaded(singleStats);
+      } catch (err) {
+        if (err instanceof DOMException && err.name === "AbortError") {
+          return;
+        }
+
+        console.error("Error getting chapter stats:", err);
+      } finally {
+        setLoading(false);
+      }
     }
+
     setLoading(true);
     getStats();
   }, []);

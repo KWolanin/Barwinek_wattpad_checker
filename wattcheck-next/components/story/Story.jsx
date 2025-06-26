@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 
 function Story() {
-  const fanfic = useContext(FanficContext);
+  const {fanfic} = useContext(FanficContext);
   if (!fanfic) return null;
 
   const { t } = useTranslation();

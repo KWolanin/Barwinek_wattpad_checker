@@ -11,7 +11,7 @@ import ChapterStatistics from "@/components/chapter/ChapterStatistics";
 import { useTranslation } from "react-i18next";
 
 function Statistics() {
-  const fanfic = useContext(FanficContext);
+  const {fanfic} = useContext(FanficContext);
   if (!fanfic) return null;
   const { t } = useTranslation();
 

@@ -1,33 +1,43 @@
-'use client'
+"use client";
 import "@/i18n";
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 import { useEffect, useState, useContext } from "react";
 import { FanficContext } from "@/context/fanfic-context";
 
 function Author() {
   const [user, setUser] = useState();
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-
-  const fanfic = useContext(FanficContext);
+  const { fanfic, getSignal } = useContext(FanficContext);
   if (!fanfic) return null;
   const username = fanfic.author;
 
-    useEffect(() => {
+  useEffect(() => {
     async function getUserInfo() {
-      const res = await fetch("/api/user", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username }),
-      });
-      if (res.ok) {
+      try {
+        const res = await fetch("/api/user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username }),
+          signal: getSignal(),
+        });
+
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
         const result = await res.json();
         setUser(result);
+      } catch (err) {
+        if (err instanceof DOMException && err.name === "AbortError") {
+          return;
+        }
+        console.error("Error during getting user:", err);
       }
     }
+
     getUserInfo();
   }, [username]);
-
 
   return (
     <div className=" bg-gray-100 border border-own-orange rounded-2xl shadow p-4 col-span-1 items-center">
@@ -46,8 +56,12 @@ function Author() {
             height="80"
             alt="user avatar"
           />
-          <p className="mt-2 text-amber-800 font-semibold">{t('published')}: {user.publishedStories}</p>
-          <p className="mt-2 text-amber-800 font-semibold">{t('followers')}: {user.followers}</p>
+          <p className="mt-2 text-amber-800 font-semibold">
+            {t("published")}: {user.publishedStories}
+          </p>
+          <p className="mt-2 text-amber-800 font-semibold">
+            {t("followers")}: {user.followers}
+          </p>
         </div>
       )}
       {!user && (

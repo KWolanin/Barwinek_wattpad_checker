@@ -5,7 +5,6 @@ export async function getFic(url) {
     throw new Error("error.empty_url");
   }
   if (!url.startsWith("https://www.wattpad.com/story/")) {
-    // trychange
     if (url.includes("myworks")) {
       url = url.replace("myworks", "story");
     } else throw new Error("error.invalid_url");
