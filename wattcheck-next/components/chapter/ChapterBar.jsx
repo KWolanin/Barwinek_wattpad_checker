@@ -4,15 +4,17 @@ import { useContext, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import formatDate from "@/src/date";
 import { FanficContext } from "@/context/fanfic-context";
+import Tooltip from "@/components/ui/Tooltip";
 
 function ChapterBar({ chapter, onChapterLoaded, index }) {
   const [isLoading, setLoading] = useState(false);
+  const [tooManyRequests, setTooManyRequests] = useState(false);
   const [stats, setStats] = useState({
     views: 0,
     stars: 0,
     comments: 0,
   });
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { getSignal } = useContext(FanficContext);
 
   const dateFormatted = useMemo(() => {
@@ -42,7 +44,8 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
         });
 
         if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
+          const data = await res.json();
+          throw new Error(data.error || `HTTP error! status: ${res.status}`);
         }
 
         const result = await res.json();
@@ -58,6 +61,15 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
       } catch (err) {
         if (err instanceof DOMException && err.name === "AbortError") {
           return;
+        }
+
+        if (err.message == "Too Many Requests") {
+          setStats({
+            views: 0,
+            stars: 0,
+            comments: 0,
+          });
+          setTooManyRequests(true);
         }
 
         console.error("Error getting chapter stats:", err);
@@ -76,12 +88,12 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
       target="_blank"
       className="flex justify-between items-center px-4 py-2 bg-gray-100 border border-own-orange rounded-2xl shadow hover:bg-own-salmon transition-colors text-gray-800 "
     >
-      <div className="flex items-center space-x-2 max-w-[70%] overflow-hidden relative">
+      <div className="flex items-center space-x-2 max-w-[70%]  relative">
         <span className="text-xs text-gray-500 font-semibold whitespace-nowrap">
           {chapter.no}
         </span>
 
-        <span className="font-semibold truncate text-amber-800">
+        <span className="font-semibold truncate text-amber-800 overflow-hidden">
           {chapter.title}
         </span>
         <span className="flex space-x-2 text-xs text-white">
@@ -146,10 +158,31 @@ function ChapterBar({ chapter, onChapterLoaded, index }) {
               <span className="w-4 h-3 bg-sky-300 rounded animate-pulse"></span>
             )}
           </span>
+          {tooManyRequests && (
+            <Tooltip text={t('too_many_requests')}>
+             <span className="flex items-center bg-rose-500 rounded px-2 py-0.5 space-x-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zm-1-10h2v7h-2V7z"
+                />
+              </svg>
+            </span> 
+            </Tooltip>
+            
+          )}
         </span>
       </div>
 
-      <span className="text-sm text-gray-500 whitespace-nowrap">
+      <span className="text-sm text-gray-500  whitespace-nowrap overflow-hidden">
         {dateFormatted}
       </span>
     </a>

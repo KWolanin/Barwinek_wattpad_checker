@@ -27,5 +27,8 @@
   "how_it_works_desc_5": "Aplikacja jest w pełni open-source, więc możesz sprawdzić kod źródłowy na ",
   "how_it_works_desc_6": " GitHubie.",
   "about": "O mnie",
-  "about_desc": "Jeśli podoba Ci się ta aplikacja, możesz mnie wesprzeć, kupując mi kawę. Pomoże mi to w utrzymaniu i ulepszaniu aplikacji ;3"
+  "about_desc": "Jeśli podoba Ci się ta aplikacja, możesz mnie wesprzeć, kupując mi kawę. Pomoże mi to w utrzymaniu i ulepszaniu aplikacji ;3",
+  "is_it_safe": "Czy to bezpieczne?",
+  "is_it_safe_explain": "",
+  "too_many_requests": "Zbyt dużo połączeń do Wattpada, spróbuj ponownie później"
 }

@@ -11,6 +11,12 @@ export async function POST(request) {
   const html = await res.text();
 
   const $ = cheerio.load(html);
+
+  const bodyText = $("body").text();
+  if (bodyText.includes("Too Many Requests")) {
+  return new Response(JSON.stringify({ error: "Too Many Requests" }), { status: 429 })
+  }
+
   const matchingDivs = $(`div.story-stats`);
 
   let rawText = "";

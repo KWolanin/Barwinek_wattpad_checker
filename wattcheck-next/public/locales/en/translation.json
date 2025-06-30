@@ -27,6 +27,8 @@
   "how_it_works_desc_5": "The app is fully open-source, so you can check the source code on ",
   "how_it_works_desc_6": " GitHub.",
   "about": "About me",
-  "about_desc": "If you like this app, you can support me by buying me a coffee. It will help me maintain and improve the app ;3"
+  "about_desc": "If you like this app, you can support me by buying me a coffee. It will help me maintain and improve the app ;3",
+  "is_it_safe": "Is it safe?",
+  "is_it_safe_explain": "",
+  "too_many_requests": "Too many requests to Wattpad, try again later"
 }
-
